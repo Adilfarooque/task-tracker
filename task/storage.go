@@ -18,18 +18,18 @@ func LoadTasks() ([]Task, error) {
 	}
 
 	var tasks []Task
-	err = json.Unmarshal(file,&tasks)
-	if err != nil{
-		return nil,err
+	err = json.Unmarshal(file, &tasks)
+	if err != nil {
+		return nil, err
 	}
-	return tasks,nil
+	return tasks, nil
 }
 
-func SaveTasks(tasks []Task)error{
-	data,err := json.MarshalIndent(tasks,"","  ")
-	if err != nil{
+func SaveTasks(tasks []Task) error {
+	data, err := json.MarshalIndent(tasks, "", "  ")
+	if err != nil {
 		return err
 	}
 
-	return os.WriteFile(filePath,data,0644)
+	return os.WriteFile(filePath, data, 0644)
 }
